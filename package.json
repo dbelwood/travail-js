@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "redis": "*",
-    "node-amqp": "*",
-    "jake": "*"
+    "node-amqp": "*"
     },
   "devDependencies": {
-    "nodeunit": "*"
+    "jake": "*",
+    "vows": "*"
     },
   "optionalDependencies": {},
   "engines": {
