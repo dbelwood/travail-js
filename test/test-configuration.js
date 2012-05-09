@@ -1,8 +1,7 @@
-var Travail = require('../travail'),
-	assert = require('assert'),
-	redis = require('redis'),
-	vows = require('vows'),
-	assert = require('assert');
+var Travail = 	require('../travail'),
+	redis = 	require('redis'),
+	vows = 		require('vows'),
+	assert = 	require('assert');
 
 vows.describe('Travail').addBatch({
 	'Configuration': {
