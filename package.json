@@ -1,0 +1,25 @@
+{
+  "author": "Dan Belwood <dan.belwood@gmail.com> (dbelwood.github.com)",
+  "name": "travail-js",
+  "description": "Javascript client for the travail distributed worker framework",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git@github.com:dbelwood/travail-js.git"
+  },
+  "main": "travail.js",
+  "scripts": {
+    "test": "jake test"
+  },
+  "dependencies": {
+    "redis": "*",
+    "node-amqp": "*",
+    "jake": "*"
+    },
+  "devDependencies": {
+    "nodeunit": "*"
+    },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
