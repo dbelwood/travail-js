@@ -2,20 +2,22 @@ desc('Run all tests');
 namespace('tests', function() {
 	task('runTests', ['tests:setupTests'], function() {
 		var tests = [
-		'vows test/test-*.js'
+		'vows --spec test/test-*.js'
 		];
 		jake.exec(tests, function() {
-			console.log("All tests passed.");
 			jake.Task['tests:teardownTests'].invoke();
 			complete();
 		}, {stdout: true});
 	});
 	task('setupTests', function() {
+		console.log("Starting services...")
 		var startCommands = [
 		'redis-server test/redis.conf'
-		//, 'rabbitmq-server &'
+		, 'rabbitmq-server -detached'
+		, 'rabbitmqctl wait'
 		]
 		jake.exec(startCommands, function() {
+			console.log('done.')
 			complete();
 		}, {stdout: true});
 	});
@@ -23,7 +25,7 @@ namespace('tests', function() {
 		console.log("Tearing down.");
 		var stopCommands = [
 		'killall redis-server'
-		//, 'rabbitmqctl stop'
+		, 'rabbitmqctl stop'
 		]
 		jake.exec(stopCommands, function() {
 			console.log("Services stopped.");
